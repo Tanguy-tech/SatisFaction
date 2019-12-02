@@ -25,3 +25,23 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+
+#Devise
+gem 'devise'
+
+#Table_Print
+gem "table_print"
+
+#.env
+gem 'dotenv-rails'
+
+gem "letter_opener", :group => :development
+
+#Gem Stripe payements
+gem 'stripe'
+
+gem 'faker'
+
+#Tests
+gem 'factory_bot_rails'
