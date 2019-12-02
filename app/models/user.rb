@@ -8,4 +8,7 @@ class User < ApplicationRecord
             presence: true,
             uniqueness: true,
             format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "Unvalid email adress" }
+
+  has_many :surveys
+  
 end
