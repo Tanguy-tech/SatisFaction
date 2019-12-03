@@ -28,9 +28,9 @@ RSpec.describe Response, type: :model do
 
 
     context "associations" do
-
+ 
         describe "questions" do
-          it { expect(@response).to belong_to(:question) }
+          it { expect(@response).to have_many(:questions) }
         end
     
     end
@@ -42,11 +42,11 @@ RSpec.describe Response, type: :model do
         describe "#value" do
     
           it "should return a integer" do
-            expect(@sresponse.value).to be_a(Integer)
+            expect(@response.value).to be_a(Integer)
             end
           it "should return the value" do
-            response_2 = build(:response, value: "3")
-            expect(response_2.value).to eq("3")
+            response_2 = build(:response, value: 3)
+            expect(response_2.value).to eq(3)
             end
         end
     
