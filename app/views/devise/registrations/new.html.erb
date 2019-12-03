@@ -1,31 +1,5 @@
-<h2>Sign up</h2>
-
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field" style="border-radius: 30px">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
- 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-
-
 
       <div class="container pt-lg-md">
         <div class="row justify-content-center">
@@ -33,22 +7,19 @@
             <div class="card bg-secondary shadow border-0">
               <div class="card-body px-lg-5 py-lg-5" style="background-color: #8898aa; border-radius: 15px;">
                 <div class="text-center mb-4">
-                  <small>Sign up</small>
+                  <h2>Sign up !</h2>
                 </div>
                 <form>
                   <div class="form-group">
-                    <div class="input-group input-group-alternative mb-3">
-                    </div>
                   </div>
                   <div class="form-group">
                     <div class="input-group input-group-alternative mb-3">
                       <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-at"></i></span>
                       </div>
-                        <input class="field form-control">
-                          <% f.label :email %><br />
-                          <% f.email_field :email, autofocus: true, autocomplete: "email" %>
-                        
+                          <% f.label :email %>
+                          <%= f.email_field :email, autofocus: true, autocomplete: "email", :class=> "field form-control", :placeholder=> "Email" %>
+                                             
                     </div>
                   </div>
                   <div class="form-group">
@@ -56,27 +27,21 @@
                       <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-unlock-alt"></i></span>
                       </div>
-                      <input class="form-control" placeholder="Password" type="password">
-                    </div>
+                        <% f.label :password %>
+                        <%= f.password_field :password, autocomplete: "new-password", :class=> "field form-control", :placeholder=> "Password" %>
+                      </div>
                     <div class="text-primary font-italic"><small>(6 characters minimum)</small></div>
                   </div>
                   <div class="input-group input-group-alternative">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="fas fa-unlock-alt"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Password confirmation" type="password">
+                      <% f.label :password_confirmation %>
+                      <%= f.password_field :password_confirmation, autocomplete: "new-password", :class=> "field form-control", :placeholder=> "Password Confirmation" %>
                   </div>
-
-                  <div class="row my-4">
-                    <div class="col-12">
-                      <div class="custom-control custom-control-alternative custom-checkbox">
-                        <input class="custom-control-input" id="customCheckRegister" type="checkbox">
-                        <label class="custom-control-label" for="customCheckRegister"><span>I agree with the <a href="#">Privacy Policy</a></span></label>
-                      </div>
-                    </div>
-                  </div>
+                  <br><br>
                   <div class="text-center">
-                    <button type="button" class="btn btn-secondary mt-4">Create account</button>
+                    <%= f.submit "Create an account", :class=> "actions btn btn-secondary" %>
                   </div>
                 </form>
               </div>
@@ -86,5 +51,3 @@
       </div>
     </section>
   <% end %>
-
-<%= render "devise/shared/links" %>
