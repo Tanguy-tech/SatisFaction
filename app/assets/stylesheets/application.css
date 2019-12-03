@@ -20322,3 +20322,8 @@ html:not([dir='rtl']) .noUi-horizontal .noUi-handle
     right: 10px;
     left: auto;
 }
+#narvbar_left 
+{
+    display:flex;
+    justify-content: left;
+}
