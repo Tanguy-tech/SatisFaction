@@ -1,5 +1,8 @@
 class Response < ApplicationRecord
 
+    validates :value,
+            presence: true
+
     has_many :join_question_responses
     has_many :questions, through: :join_question_responses
 
