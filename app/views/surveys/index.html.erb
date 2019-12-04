@@ -1,0 +1,16 @@
+ <h1> Toutes les surveys </h1>
+
+<ul id="survey-list">
+  <% @surveys.each do |survey| %>
+    <li>"<%= survey.title %>" by <b> User numéro : <%= survey.user_id %></b></li>
+  <% end %>
+</ul>
+
+
+<%= link_to "Create a survey", new_survey_path, :class=>"btn btn-success mt-4"%>
+
+
+
+<h1> Mes surveys </h1>
+
+<%= @my_surveys.title %>
