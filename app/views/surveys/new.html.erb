@@ -1,39 +1,37 @@
+<%= content_tag :div,
+id: 'survey-form',
+data: { survey: @survey.to_json(except: [:created_at, :updated_at]),
+question_attributes: @survey.questions.to_json(except: [:survey_id, :created_at, :updated_at]),
+} do %>
 
-<% if user_signed_in? %>
+  <% if user_signed_in? %>
 
-	<p> Voici ton ID : <%= current_user.id %> </p>
-
-
-
-<%= form_for @survey, url: surveys_path do |f| %>
-  <label for="title">Title of the survey
-  <%= f.text_field :title %> </br>
-  <%= f.hidden_field :user_id, value: @user.id %>
-  <%= f.submit 'create', :name => 'commit' %>
-<% end %>
-
-
-	<hr> 
-
-	<p> Maintenant, tu peux ajouter jusqu'à 5 questions ! Tu peux aussi les supprimer si elles ne te conviennent pas </p>
+    <p> Voici ton ID : <%= current_user.id %> </p>
 
 
 
-  <!-- si le user n'est pas connecté alors on le renvoit vers les liens -->
-  <% else %>
-  
-      <%= link_to "Sign in", new_user_session_path %>
-
-
-      <%= link_to "Sign up", new_user_registration_path %>
-
-
+  <%= form_for @survey, url: surveys_path do |f| %>
+    <label for="title" >Title of the survey
+    <%= f.text_field :title, "v-model": "survey.title"%> </br>
+    <%= f.hidden_field :user_id, value: @user.id %>
+    <%= f.submit 'create', :name => 'commit' %>
   <% end %>
 
 
+    <hr> 
+
+    <p> Maintenant, tu peux ajouter jusqu'à 5 questions ! Tu peux aussi les supprimer si elles ne te conviennent pas </p>
 
 
 
+    <!-- si le user n'est pas connecté alors on le renvoit vers les liens -->
+    <% else %>
+    
+        <%= link_to "Sign in", new_user_session_path %>
 
 
+        <%= link_to "Sign up", new_user_registration_path %>
 
+    <% end %>
+
+<% end %>
