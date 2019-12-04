@@ -4,10 +4,10 @@ class Survey < ApplicationRecord
             presence: true
 
     validates :user_id,
-            presence: true,
-            uniqueness: true
-
+            presence: true
+            
     belongs_to :user
     has_many :questions
+    
     
 end

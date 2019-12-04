@@ -11,7 +11,8 @@ class User < ApplicationRecord
   validates :username, :length => { :minimum => 3, :maximum => 16 },
             presence: true
 
-  has_many :surveys
+  has_many :surveys , :dependent => :destroy
+
 
   after_create :welcome_send
 
