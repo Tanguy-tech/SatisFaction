@@ -3,18 +3,14 @@
 
 	<p> Voici ton ID : <%= current_user.id %> </p>
 
-	</br>
-	<div id="form-survey" class="form">
-	  <%= form_tag(surveys_path, method: :post, class: "form") do %>
-	    <label for="title">Title of the survey
-	    <%= text_field_tag  :title %> </br>
-	    
-	    <label for="user_id"> User_ID (à changer après)
-	    <%= text_field_tag  :user_id %>
 
-	  	<%= submit_tag 'create', :name => 'commit'%>
-	  <% end %>
-	</div>
+
+<%= form_for @survey, url: surveys_path do |f| %>
+  <label for="title">Title of the survey
+  <%= f.text_field :title %> </br>
+  <%= f.hidden_field :user_id, value: @user.id %>
+  <%= f.submit 'create', :name => 'commit' %>
+<% end %>
 
 
 	<hr> 
