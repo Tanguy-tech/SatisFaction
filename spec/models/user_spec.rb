@@ -26,6 +26,10 @@ RSpec.describe User, type: :model do
         describe "#username" do
           it { expect(@user).to validate_length_of(:username).is_at_least(3) }
         end
+
+        describe "#username" do
+          it { expect(@user).to validate_length_of(:username).is_at_most(16) }
+        end
     end
 
 

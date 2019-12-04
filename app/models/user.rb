@@ -8,10 +8,11 @@ class User < ApplicationRecord
             presence: true,
             uniqueness: true,
             format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "Unvalid email adress" }
-  validates :username, :length => { :minimum => 3 },
+  validates :username, :length => { :minimum => 3, :maximum => 16 },
             presence: true
 
-  has_many :surveys
+  has_many :surveys , :dependent => :destroy
+
 
   after_create :welcome_send
 
