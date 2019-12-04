@@ -7,4 +7,7 @@ class StaticController < ApplicationController
 
   def index_contact_us
   end
+
+  def index_home
+  end
 end
