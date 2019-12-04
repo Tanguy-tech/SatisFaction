@@ -6568,13 +6568,21 @@ a.badge:focus
     background-color: black;
 }
 
+.bodybg
+{
+    background-color: rgb(35, 41, 89);
+}
+
 .jumbotron
 {
     margin-bottom: 2rem;
     padding: 2rem 1rem;
 
     border-radius: .3rem;
-    background-color: #e9ecef;
+    background-color: #16cf1fa4;
+    height: 500px;
+    background-image: url("../images/jumbopic.jpeg");
+
 }
 @media (min-width: 576px)
 {
