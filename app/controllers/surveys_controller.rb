@@ -13,6 +13,7 @@ class SurveysController < ApplicationController
   @survey = Survey.new
   @user = current_user
 
+  5.times { @survey.questions.build }
   end
 
 
