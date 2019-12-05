@@ -20354,6 +20354,7 @@ body {
 footer {
     display : table-row;
     height: 10px;
+    width: 100%;
     background-color: #172b4d;
 }
 
