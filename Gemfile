@@ -87,3 +87,8 @@ gem 'faker'
 #for nested forms
 gem 'webpacker', '~> 4.x'
 gem "vue-rails-form-builder"
+gem "simple_form", "~> 5.0"
+gem 'cocoon'
+gem 'jquery-rails'
+gem 'rails-ujs'
+gem "jquery-ui-rails"

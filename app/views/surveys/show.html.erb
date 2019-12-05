@@ -1,1 +1,14 @@
-<h1> <%= @survey.title %> </h1>
+  
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @survey.title %>
+  <% @survey.questions.each do |q| %>
+  <%= q.number %><br>
+  <%= q.content %><br>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_survey_path(@survey) %> |
+<%= link_to 'Back', surveys_path %>
