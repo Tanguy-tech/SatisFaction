@@ -20330,13 +20330,31 @@ html:not([dir='rtl']) .noUi-horizontal .noUi-handle
     right: 10px;
     left: auto;
 }
+
 #navbar_right
 {
     display:flex;
     justify-content: right;
 }
+
 #narvbar_left 
 {
     display:flex;
     justify-content: left;
 }
+
+html, body {
+    height: 100%;
+    margin: 0; padding: 0;
+}
+body {
+    display : table;
+    width: 100%;
+}
+footer {
+    display : table-row;
+    height: 10px;
+    background-color: #172b4d;
+}
+
+
