@@ -5,22 +5,26 @@ class SurveysController < ApplicationController
 	# GET /surveys.json
 	def index
 	  @surveys = Survey.all
+	  @user = current_user
 	end
   
 	# GET /surveys/1
 	# GET /surveys/1.json
 	def show
+		@user = current_user
 	end
   
 	# GET /surveys/new
 	def new
 	  @survey = Survey.new
 	  @survey.questions.build
+	  @user = current_user
 	end
   
 	# GET /surveys/1/edit
 	def edit
 	  @survey.questions.build
+	  @user = current_user
 	end
   
 	# POST /surveys
