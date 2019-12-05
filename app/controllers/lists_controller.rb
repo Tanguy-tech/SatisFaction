@@ -16,11 +16,7 @@ class ListsController < ApplicationController
 
 	@list_array = @list.email.split(', ')
 	
-
-	ListMailer.send_survey(list_array).deliver_now
-
-	binding.pry
-
+	ListMailer.sending_survey(@list_array).deliver_now
 
   end
 
@@ -31,14 +27,6 @@ private
 	def list_params
 		params.require(:list).permit(:email)
 	end
-
-	def send_survey(list_array)
-
-	  @list_array.each do |list|
-	  ListMailer.new(list, subject: "Prends 2 minutes pour répondre à ton enquête")
-	  end
-
-    end
 
 
 end
