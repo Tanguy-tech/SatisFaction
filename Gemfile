@@ -83,3 +83,7 @@ gem "letter_opener", :group => :development
 gem 'stripe'
 
 gem 'faker'
+
+#for nested forms
+gem 'webpacker', '~> 4.x'
+gem "vue-rails-form-builder"

@@ -2,7 +2,7 @@ class SurveysController < ApplicationController
 
   def index
 
-  	@surveys=Survey.all
+  	@surveys = Survey.all
 	@user = current_user
 	  
   end
@@ -13,6 +13,7 @@ class SurveysController < ApplicationController
   @survey = Survey.new
   @user = current_user
 
+  5.times { @survey.questions.build }
   end
 
 
@@ -22,7 +23,6 @@ class SurveysController < ApplicationController
 
 	respond_to do |format|
 	format.html { redirect_to surveys_path, notice: 'Survey was successfully created' }
-	format.js { }
 	format.json{ render :show, status: :created, location: @survey }
 	end 
 
