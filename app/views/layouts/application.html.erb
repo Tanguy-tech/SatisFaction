@@ -99,32 +99,30 @@
 </nav>
 
 <%= yield %>
-
+<footer>
 	<div>
 		<div class="row align-items-center justify-content-md-between">
 			<div class="col-md-6">
 				<div class="copyright">
-					© 2019 <a href="/" target="_blank">Satisfact°, Project final T.H.P</a>.
+					 <%= link_to "© 2019 Satisfact°, final project", root_path, class: "nav-link" %>
 				</div>
 			</div>
 			<div class="col-md-6">
 				<ul class="nav nav-footer justify-content-end">
 					<li class="nav-item">
 						<%= link_to "About Us", static_index_about_us_path, class: "nav-link" %>
-						<!-- <a class="nav-link" target="_blank" href="/static/index_about_us">About Us</a> -->
 					</li>
 					<li class="nav-item">
 						<%= link_to "Our services", static_index_our_services_path, class: "nav-link" %>
-						<!-- <a class="nav-link" target="_blank" href="/static/index_our_services">Our services</a> -->
 					</li>
 					<li class="nav-item">
 						<%= link_to "Contact_us", static_index_contact_us_path, class: "nav-link" %>
-						<!-- <a class="nav-link" target="_blank" href="/static/index_contact_us">Contact Us</a> -->
 					</li>
 				</ul>
 			</div>
 		</div>
 	</div>
+	</footer>
 </body>
 </html>
 
