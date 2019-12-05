@@ -19,6 +19,20 @@
 
 
 
+
+
+  <hr>
+
+  <p> Maintenenant, ajoute les emails des gens à qui tu veux envoyer les mails séparés par une virgule ! </p>
+
+  <%= form_for List.new , url: lists_path do |f| %>
+  <label for="email">Emails (séparés par une virgule)
+  <%= f.text_field :email %> </br>
+  <%= f.submit 'create', :name => 'commit' %>
+<% end %>
+
+
+
   <!-- si le user n'est pas connecté alors on le renvoit vers les liens -->
   <% else %>
   

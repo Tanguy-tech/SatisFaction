@@ -1,0 +1,10 @@
+ <h1> Toutes les surveys </h1>
+
+<ul id="list-list">
+  <% @lists.each do |list| %>
+    <li>"<%= list.email %>" </li>
+  <% end %>
+</ul>
+
+
+<%= link_to "Create a survey", new_survey_path, :class=>"btn btn-success mt-4"%>

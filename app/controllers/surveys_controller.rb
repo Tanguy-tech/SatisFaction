@@ -13,6 +13,7 @@ class SurveysController < ApplicationController
   @survey = Survey.new
   @user = current_user
 
+
   end
 
 
@@ -24,6 +25,9 @@ class SurveysController < ApplicationController
 	format.html { redirect_to surveys_path, notice: 'Survey was successfully created' }
 	format.js { }
 	format.json{ render :show, status: :created, location: @survey }
+
+
+
 	end 
 
   end
@@ -34,6 +38,14 @@ class SurveysController < ApplicationController
 
   end
 
+  def update
+
+  end
+
+
+
+
+
 private
 
 	def survey_params
@@ -41,6 +53,8 @@ private
 	end
 
 end
+
+
 
 
 

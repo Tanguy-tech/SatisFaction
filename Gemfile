@@ -83,3 +83,5 @@ gem "letter_opener", :group => :development
 gem 'stripe'
 
 gem 'faker'
+
+gem 'pry'

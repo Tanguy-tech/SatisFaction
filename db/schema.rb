@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_02_142013) do
+ActiveRecord::Schema.define(version: 2019_12_04_181844) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,12 @@ ActiveRecord::Schema.define(version: 2019_12_02_142013) do
     t.datetime "updated_at", null: false
     t.index ["respondent_id"], name: "index_join_response_respondents_on_respondent_id"
     t.index ["response_id"], name: "index_join_response_respondents_on_response_id"
+  end
+
+  create_table "lists", force: :cascade do |t|
+    t.text "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "questions", force: :cascade do |t|
