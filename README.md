@@ -1,14 +1,48 @@
-# README
+# Satis'faction
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Vous allez découvrir le MVP de notre première semaine ! 
 
-Things you may want to cover:
+Rappel du but de l'application : 
+Dans le cadre du B2B, permettre aux entreprises de suivre dans le temps la satisfaction de leurs clients afin de maximiser leur rétention client.
 
-* Ruby version 2.5.1
+Pour plus de détails, n'hésitez pas à consulter le projet sur la plateforme THP : https://www.thehackingproject.org/dashboard/courses/1/final_projects/208?locale=fr
 
-* Rails version 5.2.3
+Pour tester toutes les fonctionnalités voici les étapes à suivre : 
+- Créez vous un compte 
+- Créez une enquête 
+- Grâce à nos nested forms, ajoutez des questions à l'enquête, supprimez en, enfin faites en ce que vous voulez !
+- Enfin, envoyez votre enquête à vos clients grâce à notre mailer ! 
+- Incoming : vous pourrez bientôt consultez les résultats dans un dashbaord
 
-* Database PostgreSQL
 
-* Clone repo onto your machine, run a "bundle install", rails db:create, db:migrate, db:seed if needed
+
+## Pour tester le projet en local : 
+
+Afin de tester notre code : téléchargez le projet.
+Ensuite, suivez la liste d'instructions : 
+```
+bundle install
+```
+
+```
+rails db:create
+rails db:migrate
+rails server
+```
+
+
+
+### Tester le projet sur Heroku 
+
+* https://satisfaction-project.herokuapp.com/ - Satis'faction
+
+
+
+### L'équipe
+
+Merci aux membres de l'équipe :
+* Tanguy
+* Augustin
+* Julien
+* Baptiste
+* Sacha
