@@ -1,0 +1,30 @@
+<%= simple_form_for(@survey) do |f| %>
+<%= f.error_notification %>
+<ul>
+    <% @survey.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+</ul>
+
+  <div class="form-inputs"></div>
+    <%= f.input :title %>
+    <%= f.hidden_field :user_id, value: @user.id %>
+  </div>
+
+  <table class="table">
+    <thead>
+        <th></th>
+        <th>Question Content</th>
+    </thead>
+    <tbody class="questions">
+      <%= f.simple_fields_for :questions do |builder| %>
+      <%= render 'question_fields', f: builder %>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="actions">
+    <%= f.button :submit %>
+    <%= link_to_add_association 'Add Question', f, :questions, class: 'btn btn-success', data: { association_insertion_node: '.questions', association_insertion_method: :append } %>
+  </div>
+<% end %>

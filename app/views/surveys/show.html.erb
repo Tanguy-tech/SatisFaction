@@ -1,1 +1,37 @@
-<h1> <%= @survey.title %> </h1>
+<section class="py-5 bg-secondary" style="min-height: 84%">
+
+	<p id="notice"><%= notice %></p>
+
+			<div class="container pt-lg-md">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="card bg-secondary shadow border-0">
+              <div class="card-header px-lg-5 py-lg-5">
+                <div class="text-center text-muted mb-4">
+                  <h2><%= @survey.title %></h2>
+                </div>
+                <form>      
+                  <% i = 0 %>
+	 	  						<% @survey.questions.each do |q| %>	          	
+                  <div class="form-group mb-3">
+                    <div class="input-group input-group-alternative">                     
+                      <input class="form-control" placeholder="<%= q.content %>" disabled>
+                    </div>
+                  </div>
+                  <br>
+                  <% end %>
+                </form>
+                <div class="row justify-content-around mt-3">
+		              <div class="col-3">
+		                <%= link_to 'Edit', edit_survey_path(@survey), class: "btn btn-info" %>
+		              </div>
+		              <div class="col-3 text-right">
+		                <%= link_to 'Back', surveys_path, class: "btn btn-danger" %>
+		              </div>
+            		</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</section>

@@ -6569,7 +6569,7 @@ a.badge:focus
 
 .bodybg
 {
-    background-color: rgb(35, 41, 89);
+    background-color: rgb(242, 242, 242);
 }
 
 .jumbotron
@@ -6578,11 +6578,11 @@ a.badge:focus
     padding: 2rem 1rem;
 
     border-radius: .3rem;
-    background-color: #e9ecef;
-
+    background-color: #169e1fa4;
     height: 500px;
-    background-image: url("../images/jumbopic.jpeg");
+    background-image: url("https://images.pexels.com/photos/590045/pexels-photo-590045.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
 }
+
 @media (min-width: 576px)
 {
     .jumbotron
@@ -20356,5 +20356,3 @@ footer {
     width: 100%;
     background-color: #172b4d;
 }
-
-
