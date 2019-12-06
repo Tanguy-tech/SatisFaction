@@ -12,7 +12,7 @@
   </thead>
 
   <tbody>
-    <% @surveys.each do |survey| %>
+    <% @user.surveys.each do |survey| %>
       <tr>
         <td><%= survey.title %></td>
         <td><%= survey.created_at.strftime("%d %b %Y") %></td>
