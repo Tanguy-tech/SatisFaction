@@ -3,9 +3,10 @@
 
 <p>
   <strong>Title:</strong>
-  <%= @survey.title %>
+  <%= @survey.title %><br>
+  <% i = 0 %>
   <% @survey.questions.each do |q| %>
-  <%= q.number %><br>
+  <strong>Question n°<%= i = i + 1 %></strong><br>
   <%= q.content %><br>
   <% end %>
 </p>
