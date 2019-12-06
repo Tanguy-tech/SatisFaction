@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   resources :surveys
   resources :questions
+  resources :lists
   get 'static/index_about_us'
   get 'static/index_our_services'
   get 'static/index_contact_us'
