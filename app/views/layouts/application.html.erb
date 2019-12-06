@@ -46,11 +46,11 @@
 
 				<ul class="navbar-nav ml-lg-auto">
 					<% if user_signed_in? %>
-						<a class="btn btn-success mt-4" href="/surveys/new">Create a survey</a>
+						<a style="padding: auto;" class="btn btn-success" href="/surveys/new">Create a survey</a>
 					<% end %>
 					<li class="nav-item dropdown">
 						<a class="nav-link nav-link-icon" href="#" id="navbar-default_dropdown_1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<i class="fas fa-user-circle"></i>
+							<i class="fas fa-2x fa-user-circle" style="size: 50px;"></i>
 							<span class="nav-link-inner--text d-lg-none">Profile</span>
 						</a>
 						
@@ -67,8 +67,8 @@
 							</div>
 						<% end %>
 					</li>
-					<li class="nav-item dropdown">
-						<label class="custom-toggle">
+					<li class="nav-item dropdown" style="margin-top: auto;margin-bottom: auto;">
+						<label class="custom-toggle" style="margin-top: auto;margin-bottom: auto;">
 							<input type="checkbox">
 							<span class="custom-toggle-slider rounded-circle"></span>
 						</label>
