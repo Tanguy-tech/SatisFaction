@@ -11,7 +11,7 @@
   </thead>
 
   <tbody>
-    <% @surveys.each do |survey| %>
+    <% @user.surveys.each do |survey| %>
       <tr>
         <td><%= survey.title %></td>
         <td><%= link_to 'Show', survey %> | </td>
