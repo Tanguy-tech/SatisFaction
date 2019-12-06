@@ -10,7 +10,7 @@ class SurveysController < ApplicationController
   
 	# GET /surveys/1
 	# GET /surveys/1.json
-	def show
+	def show 
 		@user = current_user
 	end
   
