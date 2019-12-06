@@ -1,6 +1,7 @@
 class SurveysController < ApplicationController
 	before_action :set_survey, only: [:show, :edit, :update, :destroy]
-  
+  	before_action :authenticate_user!
+  	
 	# GET /surveys
 	# GET /surveys.json
 	def index
@@ -10,7 +11,7 @@ class SurveysController < ApplicationController
   
 	# GET /surveys/1
 	# GET /surveys/1.json
-	def show
+	def show 
 		@user = current_user
 	end
   
