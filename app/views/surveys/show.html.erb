@@ -1,3 +1,4 @@
+<% if current_user == @survey.user_id %>
 <section class="py-5 bg-secondary" style="min-height: 84%">
 
 	<p id="notice"><%= notice %></p>
@@ -29,9 +30,27 @@
 		                <%= link_to 'Back', surveys_path, class: "btn btn-danger" %>
 		              </div>
             		</div>
+                  <hr>
+                  <%= form_for List.new , url: lists_path do |f| %>
+                    <div class="form-group mb-3">
+ 
+                        <label for="email"> Entre les emails des destinataires de la survey séparés par une virgule et un espace (a, b, ..) </label> </br>
+                        <%= f.text_field :email, class: "form-control", placeholder: "jack@gmail.com, brigitte@gmail.com" %> </br>
+
+                    </div>
+
+                    <%= f.submit 'create', :name => 'commit', :value => 'Envoyer', class: "btn btn-success" %>
+                  <% end %>
               </div>
             </div>
           </div>
         </div>
       </div>
+<% else %>
+<% controller.redirect_to root_path %>
+<% end %>
+
+
+
+
 </section>
