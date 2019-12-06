@@ -6579,11 +6579,11 @@ a.badge:focus
     padding: 2rem 1rem;
 
     border-radius: .3rem;
-    background-color: #16cf1fa4;
+    background-color: #169e1fa4;
     height: 500px;
-    background-image: url("../images/jumbopic.jpeg");
-
+    background-image: url("https://miro.medium.com/max/10636/1*KhvhVYWnCIG_8Rho8D2XTg@2x.jpeg");
 }
+
 @media (min-width: 576px)
 {
     .jumbotron
@@ -20330,3 +20330,31 @@ html:not([dir='rtl']) .noUi-horizontal .noUi-handle
     right: 10px;
     left: auto;
 }
+
+#navbar_right
+{
+    display:flex;
+    justify-content: right;
+}
+
+#narvbar_left 
+{
+    display:flex;
+    justify-content: left;
+}
+
+html, body {
+    height: 100%;
+    margin: 0; padding: 0;
+}
+body {
+    display : table;
+    width: 100%;
+}
+footer {
+    display : table-row;
+    height: 10px;
+    background-color: #172b4d;
+}
+
+
