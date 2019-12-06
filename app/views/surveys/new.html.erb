@@ -1,36 +1,6 @@
-<% if user_signed_in? %>
+  
+<h1>New Survey</h1>
 
-    <p> Voici ton ID : <%= current_user.id %> </p>
+<%= render 'form', survey: @survey %>
 
-
-
-  <%= form_for @survey, url: surveys_path do |f| %>
-    <label for="title" >Title of the survey
-    <%= f.text_field :title %> </br>
-    <%= f.hidden_field :user_id, value: @user.id %>
-    <% for question in @survey.questions %>
-    <% fields_for "...", question do |question_form| %>
-    <p>
-      Question : <%= question_form.text_field :content %>
-    </p>
-    <% end %>
-    <% end %>
-    <%= f.submit 'create', :name => 'commit' %>
-  <% end %>
-
-
-    <hr> 
-
-    <p> Maintenant, tu peux ajouter jusqu'à 5 questions ! Tu peux aussi les supprimer si elles ne te conviennent pas </p>
-
-
-
-    <!-- si le user n'est pas connecté alors on le renvoit vers les liens -->
-  <% else %>
-    
-      <%= link_to "Sign in", new_user_session_path %>
-
-
-      <%= link_to "Sign up", new_user_registration_path %>
-
-<% end %>
+<%= link_to 'Back', surveys_path %>
