@@ -1,4 +1,4 @@
-<% if current_user = @survey.user_id %>
+<% if @survey.user_id == current_user.id %>
 <section class="py-5 bg-secondary" style="min-height: 84%">
 
 	<p id="notice"><%= notice %></p>
