@@ -1,6 +1,6 @@
 class ContactMailer < ApplicationMailer
 
-	default from: "admin@satisfaction.com"
+	default from: "no-reply@monsite.fr"
   
   def general_message(contact)
     @contact = contact
