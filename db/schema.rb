@@ -10,10 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_06_115129) do
+ActiveRecord::Schema.define(version: 2019_12_09_152201) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "email"
+    t.text "message"
+  end
 
   create_table "join_question_responses", force: :cascade do |t|
     t.bigint "question_id"
@@ -40,9 +45,9 @@ ActiveRecord::Schema.define(version: 2019_12_06_115129) do
   end
 
   create_table "questions", force: :cascade do |t|
+    t.bigint "survey_id"
     t.integer "number"
     t.text "content"
-    t.bigint "survey_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["survey_id"], name: "index_questions_on_survey_id"
@@ -88,4 +93,5 @@ ActiveRecord::Schema.define(version: 2019_12_06_115129) do
   add_foreign_key "join_question_responses", "responses"
   add_foreign_key "join_response_respondents", "respondents"
   add_foreign_key "join_response_respondents", "responses"
+  add_foreign_key "questions", "surveys"
 end
