@@ -1,0 +1,26 @@
+
+</br> <%= notice %>
+
+<div class="container">
+	<div class="card-body p-lg-5" style="text-align: center;">
+		<h4 class="mb-1">You want to contact us?</h4>
+		<p class="mt-0">Your opinion is very important to us.</p>
+		<%= form_for @contact, url: contacts_path do |f| %>
+
+		<div class="form-group mt-5">
+			<div class="input-group input-group-alternative">
+				<div class="input-group-prepend">
+					<span class="input-group-text"><i class="ni ni-user-run"></i></span>
+				</div>
+				<%= f.email_field :email, placeholder: 'Your Email adress', class: 'form-control' %>
+			</div>
+		</div>
+		<div class="form-group mb-4">
+			<%= f.text_area :message, placeholder: 'Type a message...', class: 'form-control form-control-alternative' %>
+		</div>
+		<div>
+			<%= f.submit 'Send', class: 'btn btn-default btn-round btn-block btn-lg'%>
+		</div>
+		<% end %>
+	</div>
+</div>
