@@ -42,6 +42,11 @@ class SurveysController < ApplicationController
 		  format.json { render json: @survey.errors, status: :unprocessable_entity }
 		end
 	  end
+
+	  @landing = Landing.create(:survey_id)
+
+	  binding pry
+
 	end
   
 	# PATCH/PUT /surveys/1
