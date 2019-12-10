@@ -38,6 +38,7 @@ class SurveysController < ApplicationController
 	  @survey = Survey.new(survey_params)
   
 	  respond_to do |format|
+<<<<<<< HEAD
 			if @survey.save
 				format.html { redirect_to @survey, notice: 'Survey was successfully created.' }
 				format.json { render :show, status: :created, location: @survey }
@@ -45,6 +46,16 @@ class SurveysController < ApplicationController
 				format.html { render :new }
 				format.json { render json: @survey.errors, status: :unprocessable_entity }
 			end
+=======
+		if @survey.save
+		  format.html { redirect_to @survey }
+		  format.json { render :show, status: :created, location: @survey }
+		  flash[:create] = 'Survey was successfully created.'
+		else
+		  format.html { render :new }
+		  format.json { render json: @survey.errors, status: :unprocessable_entity }
+		end
+>>>>>>> 35d218e7f58f3e8a311b581796979e45944e00d1
 	  end
 	end
   
@@ -53,8 +64,9 @@ class SurveysController < ApplicationController
 	def update
 	  respond_to do |format|
 		if @survey.update(survey_params)
-		  format.html { redirect_to @survey, notice: 'Survey was successfully updated.' }
+		  format.html { redirect_to @survey }
 		  format.json { render :show, status: :ok, location: @survey }
+		  flash[:update] = 'Survey was successfully updated.'
 		else
 		  format.html { render :edit }
 		  format.json { render json: @survey.errors, status: :unprocessable_entity }
@@ -67,8 +79,9 @@ class SurveysController < ApplicationController
 	def destroy
 	  @survey.destroy
 	  respond_to do |format|
-		format.html { redirect_to surveys_url, notice: 'Survey was successfully destroyed.' }
+		format.html { redirect_to surveys_url }
 		format.json { head :no_content }
+		flash[:destroy] = 'Survey was successfully destroyed.'
 	  end
 	end
   

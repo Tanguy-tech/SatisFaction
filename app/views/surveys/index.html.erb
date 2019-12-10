@@ -1,6 +1,14 @@
 <section class="py-5 bg-secondary" style="min-height: 84%">
 
-  <p id="notice"><%= notice %></p>
+<% if flash[:destroy] %>
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <span class="alert-inner--icon"><i class="fas fa-check-square"></i></span>
+    <span class="alert-inner--text"><strong>Success!</strong> Survey was successfully deleted !</span>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<% end %>
 
   <h1 class="text-center">Your Surveys</h1>
 
