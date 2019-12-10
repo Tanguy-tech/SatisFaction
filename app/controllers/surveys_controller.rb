@@ -38,7 +38,6 @@ class SurveysController < ApplicationController
 	  @survey = Survey.new(survey_params)
   
 	  respond_to do |format|
-<<<<<<< HEAD
 			if @survey.save
 				format.html { redirect_to @survey, notice: 'Survey was successfully created.' }
 				format.json { render :show, status: :created, location: @survey }
@@ -46,16 +45,6 @@ class SurveysController < ApplicationController
 				format.html { render :new }
 				format.json { render json: @survey.errors, status: :unprocessable_entity }
 			end
-=======
-		if @survey.save
-		  format.html { redirect_to @survey }
-		  format.json { render :show, status: :created, location: @survey }
-		  flash[:create] = 'Survey was successfully created.'
-		else
-		  format.html { render :new }
-		  format.json { render json: @survey.errors, status: :unprocessable_entity }
-		end
->>>>>>> 35d218e7f58f3e8a311b581796979e45944e00d1
 	  end
 	end
   
