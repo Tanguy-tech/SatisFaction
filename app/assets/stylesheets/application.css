@@ -5362,7 +5362,7 @@ input[type='button'].btn-block
 .nav-link
 {
     display: block;
-
+    color: rgb(244, 244, 244);
     padding: .25rem .75rem;
 }
 .nav-link:hover,
@@ -20348,10 +20348,30 @@ html, body {
 body {
     display : table;
     width: 100%;
+    
 }
 footer {
     display : table-row;
     height: 10px;
     width: 100%;
     background-color: #172b4d;
+}
+
+.copyright
+{
+    display: flex;
+    padding-left: 10px;
+
+}
+
+.nav-footer
+{
+    display: flex;
+    padding-right: 10px;
+}
+
+.fas
+{
+    color: white;
+    padding-right: 7px;
 }

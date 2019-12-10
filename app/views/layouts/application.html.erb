@@ -29,9 +29,11 @@
 				<%= link_to "Contact Us", static_index_contact_us_path, class: "nav-link" %>
 			</div>
 			
+			<!--
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-default" aria-controls="navbar-default" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>	
+			
 			
 			<div class="collapse navbar-collapse" id="navbar-default">
 				<div class="navbar-collapse-header">
@@ -43,10 +45,11 @@
 							</div>
 					</div>
 				</div>
+				-->
 
 				<ul class="navbar-nav ml-lg-auto">
 					<% if user_signed_in? %>
-						<a style="padding: auto;" class="btn btn-success" href="/surveys/new">Create a survey</a>
+						<a style="margin-top: 20px" class="navbar-brand" href="/surveys/new"><i class="fas fa-pen"></i>Create a survey</a>
 					<% end %>
 					<li class="nav-item dropdown">
 						<a class="nav-link nav-link-icon" href="#" id="navbar-default_dropdown_1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -67,12 +70,14 @@
 							</div>
 						<% end %>
 					</li>
+					<!--
 					<li class="nav-item dropdown" style="margin-top: auto;margin-bottom: auto;">
 						<label class="custom-toggle" style="margin-top: auto;margin-bottom: auto;">
 							<input type="checkbox">
 							<span class="custom-toggle-slider rounded-circle"></span>
 						</label>
 					</li> 
+					-->
 				</ul>
 			</div>
 		</nav>
