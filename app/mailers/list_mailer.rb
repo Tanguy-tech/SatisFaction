@@ -2,14 +2,9 @@ class ListMailer < ApplicationMailer
 
 	default from: 'no-reply@monsite.fr'
 
-	def sending_survey(list_array)
+    def sending_survey(list)
 
-	  list_array.each do |list|
-	  mail to: list
-	  end
+      mail to: list
+      end
 
-    end
-
-
-   
 end
