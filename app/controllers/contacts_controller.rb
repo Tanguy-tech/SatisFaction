@@ -9,7 +9,8 @@ class ContactsController < ApplicationController
     
     if @contact.save
       ContactMailer.general_message(@contact).deliver
-      redirect_to new_contact_path, notice: 'Your message was successfully sent'
+      redirect_to new_contact_path
+      
     
     else
       render :new
