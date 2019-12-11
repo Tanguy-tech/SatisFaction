@@ -1,7 +1,25 @@
 <% if @survey.user_id == current_user.id %>
 <section class="py-5 bg-secondary" style="min-height: 84%">
 
-	<p id="notice"><%= notice %></p>
+<% if flash[:create] %>
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <span class="alert-inner--icon"><i class="fas fa-check-square"></i></span>
+    <span class="alert-inner--text"><strong>Success!</strong> Survey was successfully created !</span>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<% end %>
+
+<% if flash[:update] %>
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <span class="alert-inner--icon"><i class="fas fa-check-square"></i></span>
+    <span class="alert-inner--text"><strong>Success!</strong> Survey was successfully updated !</span>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<% end %>
 
 			<div class="container pt-lg-md">
         <div class="row justify-content-center">
@@ -20,8 +38,21 @@
                     </div>
                   </div>
                   <br>
+                    <% if q.answered == false %>
+                      <%= link_to 'answer question', new_answer_path(q)  %>
+                    <% else %>
+                      <div style='color: green;'>Answered!</div>
+                    <% end %>
                   <% end %>
                 </form>
+                <strong>Average Rating</strong><br>
+                  <% average = [] %>
+                  <% @survey.answers.each do |a| %>
+                    <% average << a.value %>
+                  <% end %>
+                  <% result = average.sum / average.size.to_f %>
+                  <%= result %> /4 <br>
+                  <br>
                 <div class="row justify-content-around mt-3">
 		              <div class="col-3">
 		                <%= link_to 'Edit', edit_survey_path(@survey), class: "btn btn-info" %>

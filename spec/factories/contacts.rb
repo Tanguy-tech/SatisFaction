@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :respondent do
+  factory :contact do
     
   end
 end

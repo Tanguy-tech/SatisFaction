@@ -5361,9 +5361,11 @@ input[type='button'].btn-block
 
 .nav-link
 {
+    margin-top: 6px;
     display: block;
-    color: rgb(244, 244, 244);
+    display: flex;
     padding: .25rem .75rem;
+    align-items: center;
 }
 .nav-link:hover,
 .nav-link:focus
@@ -5458,7 +5460,7 @@ input[type='button'].btn-block
 .navbar
 {
     position: relative;
-
+    height: 60px;
     display: flex;
 
     padding: 1rem 1rem;
@@ -6576,7 +6578,7 @@ a.badge:focus
 {
     margin-bottom: 2rem;
     padding: 2rem 1rem;
-
+    background-size: cover;
     background-color: #169e1fa4;
     height: 600px;
     background-image: url("https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80");
@@ -17792,6 +17794,8 @@ textarea[resize='horizontal']
         padding-left: .5rem !important;
 
         border-radius: .25rem;
+        display: flex;
+        margin-bottom: 10px;
     }
     .navbar-nav .nav-link-icon i
     {
@@ -20374,4 +20378,9 @@ footer {
 {
     color: white;
     padding-right: 7px;
+}
+
+#sasfaction
+{
+    font-size: 25px;
 }

@@ -1,0 +1,21 @@
+<%= @question.content %>
+<%= simple_form_for(@answer) do |f| %>
+<%= f.error_notification %>
+
+<ul>
+    <% @answer.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+</ul>
+
+    <tbody class="answers">
+      <%= f.select :value, options_for_select(1..4) %>
+      <%= f.hidden_field :question_id, :value => @question.id %>
+      <%= f.hidden_field :survey_id, :value => @survey %>
+    </tbody>
+  </table>
+
+  <div class="actions btn btn-success btn-sm">
+    <%= f.button :submit, 'Rate' %>
+  </div>
+<% end %>

@@ -1,0 +1,11 @@
+<h1>This is all the Answers and to which Questions and Survey they belong to</h1>
+<% @answers.each do |a| %>
+<p>
+Answer N° <%= a.id %>(id)<br>
+Survey ID : <%= a.survey_id %><br>
+Question ID : <%= a.question_id %><br>
+Answer value : <%= a.value %><br>
+</p>
+<% end %>
+
+<%= link_to 'Back', surveys_path %>

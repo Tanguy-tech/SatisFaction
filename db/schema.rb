@@ -10,49 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_02_142013) do
+ActiveRecord::Schema.define(version: 2019_12_09_152201) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "join_question_responses", force: :cascade do |t|
-    t.bigint "question_id"
-    t.bigint "response_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["question_id"], name: "index_join_question_responses_on_question_id"
-    t.index ["response_id"], name: "index_join_question_responses_on_response_id"
+  create_table "contacts", force: :cascade do |t|
+    t.string "email"
+    t.text "message"
   end
 
-  create_table "join_response_respondents", force: :cascade do |t|
-    t.bigint "response_id"
-    t.bigint "respondent_id"
+  create_table "lists", force: :cascade do |t|
+    t.text "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["respondent_id"], name: "index_join_response_respondents_on_respondent_id"
-    t.index ["response_id"], name: "index_join_response_respondents_on_response_id"
   end
 
   create_table "questions", force: :cascade do |t|
     t.bigint "survey_id"
-    t.integer "number"
     t.text "content"
+    t.boolean "answered"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["survey_id"], name: "index_questions_on_survey_id"
-  end
-
-  create_table "respondents", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "responses", force: :cascade do |t|
-    t.integer "value"
-    t.bigint "question_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["question_id"], name: "index_responses_on_question_id"
   end
 
   create_table "surveys", force: :cascade do |t|
@@ -78,9 +58,5 @@ ActiveRecord::Schema.define(version: 2019_12_02_142013) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "join_question_responses", "questions"
-  add_foreign_key "join_question_responses", "responses"
-  add_foreign_key "join_response_respondents", "respondents"
-  add_foreign_key "join_response_respondents", "responses"
   add_foreign_key "questions", "surveys"
 end
