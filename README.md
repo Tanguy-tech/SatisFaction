@@ -30,6 +30,13 @@ rails db:migrate
 rails server
 ```
 
+Il est possible de crée une fausse base de donnée par le biai de 
+
+```
+rails db:seed
+```
+ATTENTION: comme mentioné dans le code, cette manipulation effacera le base de donnée existante. Cependant il est possible de ne pas effcaer la base de donnée existante et de simplement générer aléatoirement chaques objets a partir de d'IDs aléatoirement selectionés parmis ceux existants.
+
 
 
 ### Tester le projet sur Heroku 

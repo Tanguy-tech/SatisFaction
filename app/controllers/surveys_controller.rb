@@ -17,6 +17,8 @@ class SurveysController < ApplicationController
 		@survey_id = @survey.id
     @questions = Question.where(survey_id: @survey_id)
     @answers = Answer.where(survey_id: @survey).ids
+    @landings = Landing.where(survey_id: @survey_id).ids
+
 	end
   
 	# GET /surveys/new
@@ -36,7 +38,7 @@ class SurveysController < ApplicationController
 	# POST /surveys.json
 	def create
 	  @survey = Survey.new(survey_params)
-  
+
 	  respond_to do |format|
 			if @survey.save
 				format.html { redirect_to @survey }
@@ -47,6 +49,12 @@ class SurveysController < ApplicationController
 				format.json { render json: @survey.errors, status: :unprocessable_entity }
 			end
 	  end
+
+	  #Creation of a landing page associated to the creation of a survey
+	  @landing = Landing.new
+		@landing.survey_id = @survey.id
+		@landing.save
+
 	end
   
 	# PATCH/PUT /surveys/1
