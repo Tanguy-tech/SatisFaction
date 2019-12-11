@@ -40,12 +40,15 @@ puts '5 Users created!'
 
 
 # CREATE RANDOM DASHBOARDS
+i = 1
 5.times do 
-  i = 1
   Dashboard.create(user_id: i)
+  print 'Dashboard'
+  puts i
   i += 1
 end
 puts '5 Dashboards created!'
+
 
 
 
