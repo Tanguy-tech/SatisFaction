@@ -6,8 +6,8 @@ class ListsController < ApplicationController
   	@list = List.create!(list_params)
 
   	respond_to do |format|
-	format.html { redirect_to surveys_path, notice: 'Your survey was successfully sent' }
-
+	format.html { redirect_to surveys_path }
+	flash[:create_email] = 'Email was successfully send.'
 	end
 
 	@list_array = @list.email.split(', ')
