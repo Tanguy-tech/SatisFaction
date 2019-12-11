@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_10_164120) do
+ActiveRecord::Schema.define(version: 2019_12_10_214654) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answers", force: :cascade do |t|
+    t.bigint "survey_id"
+    t.bigint "question_id"
+    t.integer "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_answers_on_question_id"
+    t.index ["survey_id"], name: "index_answers_on_survey_id"
+  end
 
   create_table "contacts", force: :cascade do |t|
     t.string "email"
@@ -42,6 +52,7 @@ ActiveRecord::Schema.define(version: 2019_12_10_164120) do
     t.bigint "survey_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "token"
     t.index ["survey_id"], name: "index_landings_on_survey_id"
   end
 
@@ -53,8 +64,8 @@ ActiveRecord::Schema.define(version: 2019_12_10_164120) do
 
   create_table "questions", force: :cascade do |t|
     t.bigint "survey_id"
-    t.integer "number"
     t.text "content"
+    t.boolean "answered"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["survey_id"], name: "index_questions_on_survey_id"
@@ -78,6 +89,8 @@ ActiveRecord::Schema.define(version: 2019_12_10_164120) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "landing_id"
+    t.index ["landing_id"], name: "index_surveys_on_landing_id"
     t.index ["user_id"], name: "index_surveys_on_user_id"
   end
 
@@ -96,10 +109,13 @@ ActiveRecord::Schema.define(version: 2019_12_10_164120) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "answers", "questions"
+  add_foreign_key "answers", "surveys"
   add_foreign_key "join_question_responses", "questions"
   add_foreign_key "join_question_responses", "responses"
   add_foreign_key "join_response_respondents", "respondents"
   add_foreign_key "join_response_respondents", "responses"
   add_foreign_key "landings", "surveys"
   add_foreign_key "questions", "surveys"
+  add_foreign_key "surveys", "landings"
 end

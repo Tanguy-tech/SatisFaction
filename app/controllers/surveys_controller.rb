@@ -32,6 +32,7 @@ class SurveysController < ApplicationController
 	# POST /surveys.json
 	def create
 	  @survey = Survey.new(survey_params)
+	  @survey.landing_id=@survey.id
   
 	  respond_to do |format|
 		if @survey.save
@@ -43,9 +44,12 @@ class SurveysController < ApplicationController
 		end
 	  end
 
-	  @landing = Landing.create(:survey_id)
 
-	  binding pry
+
+	  @landing = Landing.new
+	  @landing.survey_id = @survey.id
+	  @landing.save
+
 
 	end
   
@@ -82,5 +86,9 @@ class SurveysController < ApplicationController
 	  # Never trust parameters from the scary internet, only allow the white list through.
 	  def survey_params
 		params.require(:survey).permit(:title, :user_id, questions_attributes: [:id, :_destroy, :content])
+		end
+
+		def landing_params
+		params.require(:landing).permit(:survey_id)
 	  end
   end

@@ -50,7 +50,13 @@
 <% controller.redirect_to root_path %>
 <% end %>
 
+<!-- test pour les landings --> 
 
+<p> Your landings : </p>
+<%= link_to 'Share your form', landings_path, class: "btn btn-info" %>
+
+<%= @survey.id %>
+<p> Voici ton id de landing : <%= @survey.landing_id %> </p>
 
 
 </section>
