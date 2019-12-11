@@ -1,4 +1,3 @@
-<%= @question.content %>
 <%= simple_form_for(@answer) do |f| %>
 <%= f.error_notification %>
 
@@ -8,14 +7,25 @@
     <% end %>
 </ul>
 
-    <tbody class="answers">
-      <%= f.select :value, options_for_select(1..4) %>
-      <%= f.hidden_field :question_id, :value => @question.id %>
-      <%= f.hidden_field :survey_id, :value => @survey %>
-    </tbody>
-  </table>
 
-  <div class="actions btn btn-success btn-sm">
-    <%= f.button :submit, 'Rate' %>
+<div class="container pt-lg-md">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="card bg-secondary shadow border-0">
+        <div class="card-header px-lg-5 py-lg-5">
+          <div class="text-center text-muted mb-4">
+            <h2><%= @question.content %></h2>
+          </div>
+          <div class="text-center">
+            <p> Rate this questions :</p>
+            <%= f.select :value, options_for_select(1..4) %>
+            <%= f.hidden_field :question_id, :value => @question.id %>
+            <%= f.hidden_field :survey_id, :value => @survey %>
+          </div>
+        </div>
+          <%= f.button :submit, 'Rate', class: "btn btn-success" %>
+      </div>
+    </div>
   </div>
+</div>
 <% end %>
