@@ -40,6 +40,7 @@ end
 puts '5 Users created!'
 
 
+
 # CREATE RANDOM DASHBOARDS
 i = 1
 5.times do 
@@ -53,6 +54,7 @@ puts '5 Dashboards created!'
 
 
 
+
 # CREATE RANDOM SURVEYS
 20.times do
   Survey.create(title: Faker::Book.title,
@@ -60,6 +62,20 @@ puts '5 Dashboards created!'
                                      # on pourrais ici remplacer 'rand(1..5)' par User.all.sample => ce qui selectionnerais un ID Utilisateur existant.
 end
 puts '20 Surveys created!'
+
+
+
+
+# CREATE RANDOM LANDNGS
+j = 1
+20.times do
+  Landing.create(survey_id: j)
+  print 'Landing'
+  puts j
+  j += 1
+end
+puts '20 Landings created!'
+
 
 
 
