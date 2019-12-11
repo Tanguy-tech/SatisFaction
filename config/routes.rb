@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :questions
   resources :lists
   resources :contacts
-  resources :answers
+  resources :answers, except: [:index, :show, :edit]
   get 'static/index_about_us'
   get 'static/index_our_services'
   get 'static/index_contact_us'
