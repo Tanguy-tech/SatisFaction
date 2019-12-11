@@ -10,6 +10,16 @@
   </div>
 <% end %>
 
+<% if flash[:create_email] %>
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <span class="alert-inner--icon"><i class="fas fa-check-square"></i></span>
+    <span class="alert-inner--text"><strong>Success!</strong> Email was successfully send !</span>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<% end %>
+
   <h1 class="text-center">Your Surveys</h1>
 
   <table class="table col-8 text-center center"  style="border-style: solid; border-color: gray">
