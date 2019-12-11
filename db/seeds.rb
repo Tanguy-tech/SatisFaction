@@ -13,11 +13,12 @@ require 'faker'
 # OBJECT EN EFFECTUANT UNE MODIFICATION DANS LA GÉNÉRATION ALÉATOIRE DE CHAQUE OBJETS.)
 Answer.destroy_all
 Question.destroy_all
+Landing.destroy_all
 Survey.destroy_all
 Dashboard.destroy_all
 User.destroy_all
 ActiveRecord::Base.connection_pool.with_connection do |conn|
-  conn.execute("TRUNCATE answers, questions, surveys, dashboards, users RESTART IDENTITY")
+  conn.execute("TRUNCATE answers, questions, landings, surveys, dashboards, users RESTART IDENTITY")
 end
 puts 'Users destroy'
 puts 'Surveys destroy'
