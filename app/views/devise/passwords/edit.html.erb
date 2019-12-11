@@ -1,25 +1,61 @@
-<h2>Change your password</h2>
-
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
   <%= f.hidden_field :reset_password_token %>
 
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-    <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
+<section class="section section-shaped section-lg">
+    <div class="shape shape-style-1 bg-gradient-default">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div> 
+<div class="container pt-lg-md">
+  <div class="row justify-content-center">
+    <div class="col-lg-5">
+      <div class="card shadow border-0">
+        <div class="card-body px-lg-5 py-lg-5" style="background-color: #8898aa;">
+          <div class="text-center text-muted mb-4">
+            <h2>Change your password</h2>
+          </div>
+            <form>
+              <div class="form-group mb-3">
+                <div class="input-group input-group-alternative">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-unlock-alt"></i></span>
+                  </div>
+                  <% f.label :password %>
+                  <%= f.password_field :password, autofocus: true, autocomplete: "new-password", :class=> "field form-control", :placeholder=> "New password" %>
+                </div>
+                <div class="text-primary font-italic"><small>(6 characters minimum)</small></div>
+              </div>
+              <div class="form-group mb-3">
+                <div class="input-group input-group-alternative">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-unlock-alt"></i></span>
+                  </div>
+                  <% f.label :password_confirmation%>
+                  <%= f.password_field :password_confirmation, autocomplete: "new-password", :class=> "field form-control", :placeholder=> "Confirm new password" %>
+                </div>
+              </div>
+              <div class="text-center">
+                  <div class="actions">
+                    <%= f.submit "Change my password", :class=> "btn btn-secondary" %>
+                  </div>
+              </div>
+              <div class="row mt-3">
+                <%= link_to "Login", new_user_session_path, :class=>"small col-6"%>
+                <%= link_to "Sign up", new_user_registration_path, :class=>"small col-6 text-right" %>
+              </div>
+            </form>
+        </div>
+      </div>            
+    </div>
   </div>
+</div>
+</section>
 
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Change my password" %>
-  </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
