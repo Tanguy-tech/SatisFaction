@@ -36,23 +36,26 @@
                     <div class="input-group input-group-alternative">                     
                       <input class="form-control" placeholder="<%= q.content %>" disabled>
                     </div>
-                  </div>
-                  <br>
                     <% if q.answered == false %>
-                      <%= link_to 'answer question', new_answer_path(q)  %>
+                      <%= link_to 'Not already answered', new_answer_path(q)  %>
+                      <br>
+                      <br>
                     <% else %>
                       <div style='color: green;'>Answered!</div>
+                      <br>                                      
                     <% end %>
                   <% end %>
+                  </div>
                 </form>
-                <strong>Average Rating</strong><br>
+                <div class="text-center">
+                  <strong>Average Rating</strong><br>
                   <% average = [] %>
                   <% @survey.answers.each do |a| %>
                     <% average << a.value %>
                   <% end %>
                   <% result = average.sum / average.size.to_f %>
-                  <%= result %> /4 <br>
-                  <br>
+                  <%= result %> /4
+                 </div>
                 <div class="row justify-content-around mt-3">
 		              <div class="col-3">
 		                <%= link_to 'Edit', edit_survey_path(@survey), class: "btn btn-info" %>
