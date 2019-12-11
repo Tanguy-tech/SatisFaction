@@ -39,6 +39,15 @@ end
 puts '5 Users created!'
 
 
+# CREATE RANDOM DASHBOARDS
+5.times do 
+  i = 1
+  Dashboard.create(user_id: i)
+  i += 1
+end
+puts '5 Dashboards created!'
+
+
 
 # CREATE RANDOM SURVEYS
 20.times do
