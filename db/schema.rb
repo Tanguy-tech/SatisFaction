@@ -34,19 +34,19 @@ ActiveRecord::Schema.define(version: 2019_12_11_144702) do
     t.text "message"
   end
 
-<<<<<<< HEAD
   create_table "dashboards", force: :cascade do |t|
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_dashboards_on_user_id"
-=======
+  end
+
+  
   create_table "landings", force: :cascade do |t|
     t.bigint "survey_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["survey_id"], name: "index_landings_on_survey_id"
->>>>>>> dev
   end
 
   create_table "lists", force: :cascade do |t|
