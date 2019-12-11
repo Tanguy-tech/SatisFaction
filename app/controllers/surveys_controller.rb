@@ -17,6 +17,7 @@ class SurveysController < ApplicationController
 		@survey_id = @survey.id
     @questions = Question.where(survey_id: @survey_id)
     @answers = Answer.where(survey_id: @survey).ids
+    @landings = Landing.where(survey_id: @survey_id).ids
 	end
   
 	# GET /surveys/new
@@ -47,6 +48,13 @@ class SurveysController < ApplicationController
 				format.json { render json: @survey.errors, status: :unprocessable_entity }
 			end
 	  end
+
+	  @landing = Landing.new
+		@landing.survey_id = @survey.id 
+		@landing.save
+
+	  binding.pry
+
 	end
   
 	# PATCH/PUT /surveys/1

@@ -92,3 +92,4 @@ gem 'cocoon'
 gem 'jquery-rails'
 gem 'rails-ujs'
 gem "jquery-ui-rails"
+gem 'pry'
