@@ -23,6 +23,7 @@ end
 puts 'Users destroy'
 puts 'Surveys destroy'
 puts 'Questions destroy'
+puts 'Landings destroy'
 
 
 
