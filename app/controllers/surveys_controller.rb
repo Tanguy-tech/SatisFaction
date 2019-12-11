@@ -6,7 +6,8 @@ class SurveysController < ApplicationController
 	# GET /surveys.json
 	def index
 	  @surveys = Survey.all
-	  @user = current_user
+		@user = current_user
+		@dashboard = Dashboard.where(user_id: @user.id).ids
 	end
   
 	# GET /surveys/1
@@ -37,6 +38,7 @@ class SurveysController < ApplicationController
 	# POST /surveys
 	# POST /surveys.json
 	def create
+		@user = current_user
 	  @survey = Survey.new(survey_params)
 
 	  respond_to do |format|
@@ -55,6 +57,9 @@ class SurveysController < ApplicationController
 		@landing.survey_id = @survey.id
 		@landing.save
 
+		#create dashboard
+		@dashboard = Dashboard.find_or_create_by(user_id: @user.id)
+		#finds if a dashboard already exists for this User or create a new one 
 	end
   
 	# PATCH/PUT /surveys/1

@@ -1,0 +1,13 @@
+<strong>DASHBOARD ID :</strong><%= @dashboard.id %><br>
+<strong>DASHBOARD USER_ID :</strong><%= @dashboard.user_id %><br>
+<strong>SURVEYS IDs FOR THIS USER :</strong><% @user.surveys.each do |user_s| %>
+                                        <%= user_s.id %> / 
+                                        <% end %><br>
+<strong>SURVEYS titles FOR THIS USER :</strong><% @user.surveys.each do |user_s| %>
+                                        <%= user_s.title %> / 
+                                        <% end %><br>
+<strong>QUESTIONS FOR THIS USER :</strong><% @questions.each do |q| %>
+                                          survey_id :<%= q.survey_id %> /
+                                          question_id :<%= q.id %> /
+                                          content : <%= q.content %><br>
+                                          <% end %>

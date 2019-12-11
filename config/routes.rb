@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :contacts
   resources :answers, except: [:index, :show, :edit]
   resources :landings
+  resources :dashboards
   get 'static/index_about_us'
   get 'static/index_our_services'
   get 'static/index_contact_us'
