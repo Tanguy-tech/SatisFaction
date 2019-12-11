@@ -14,9 +14,10 @@ require 'faker'
 Answer.destroy_all
 Question.destroy_all
 Survey.destroy_all
+Dashboard.destroy_all
 User.destroy_all
 ActiveRecord::Base.connection_pool.with_connection do |conn|
-  conn.execute("TRUNCATE answers, questions, surveys, users RESTART IDENTITY")
+  conn.execute("TRUNCATE answers, questions, surveys, dashboards, users RESTART IDENTITY")
 end
 puts 'Users destroy'
 puts 'Surveys destroy'
