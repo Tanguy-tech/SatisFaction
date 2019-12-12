@@ -2996,7 +2996,11 @@ textarea.form-control
 
     display: inline-block;
 
+<<<<<<< HEAD
     padding: 0.75rem 1.25rem;
+=======
+    padding: 0.625rem 1.25rem;
+>>>>>>> 3ddf5303f4483214cc01700cd7cdd9edf77fe2f5
 
     -webkit-user-select: none;
        -moz-user-select: none;
