@@ -18,7 +18,7 @@ class SurveysController < ApplicationController
 		@survey_id = @survey.id
     @questions = Question.where(survey_id: @survey_id)
     @answers = Answer.where(survey_id: @survey).ids
-    @landings = Landing.where(survey_id: @survey_id).ids
+    @landings = Landing.find_by(survey_id: @survey_id)
 
 	end
   
