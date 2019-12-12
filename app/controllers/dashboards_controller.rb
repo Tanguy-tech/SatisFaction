@@ -13,7 +13,6 @@ class DashboardsController < ApplicationController
     @dashboard = Dashboard.find(params[:id])
     @survey = Survey.where(user_id: @dashboard.user_id)
     @questions = Question.where(survey_id: @survey.ids)
-
     puts '='*80
     puts params
     puts '='*80
