@@ -70,15 +70,15 @@
 			              </a>
 			              
 			              <% if user_signed_in? %>
+			              	<% @dashboard = Dashboard.where(user_id: current_user) %>
 			                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbar-default_dropdown_1">
 			                	
-			                	<% @dashboard = Dashboard.where(user_id: current_user) %>
-			                	<%= link_to "Dashboard", dashboard_path(@dashboard.ids), class: "dropdown-item" %>
-
-			                  <%= link_to "Edit profile", edit_user_registration_path, class: "dropdown-item" %>
 			                  <%= link_to "My surveys", surveys_path, class: "dropdown-item" %>
-												<% @dashboard = Dashboard.where(user_id: current_user) %>
+
+												<% if current_user.surveys.exists? %>
 												<%= link_to 'Dashboard', dashboard_path(@dashboard.ids), class: "dropdown-item" %>
+												<% end %>
+												<%= link_to 'Edit profil', edit_user_registration_path, class: "dropdown-item" %>
 			                  <%= link_to "Disconnect", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
 			                </div>
 			              <% else %>
