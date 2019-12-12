@@ -36,14 +36,7 @@
                     <div class="input-group input-group-alternative">                     
                       <input class="form-control" placeholder="<%= q.content %>" disabled>
                     </div>
-                    <% if q.answered == false %>
-                      <%= link_to 'Not already answered', new_answer_path(q)  %>
-                      <br>
-                      <br>
-                    <% else %>
-                      <div style='color: green;'>Answered!</div>
-                      <br>                                      
-                    <% end %>
+                      <%= link_to 'Answer qestion', new_answer_path(q)  %>
                   <% end %>
                   </div>
                 </form>

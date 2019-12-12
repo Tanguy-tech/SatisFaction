@@ -16,7 +16,7 @@ class AnswersController < ApplicationController
     @answer = Answer.create(answer_params)
     @question = Question.find(@answer.question_id)
     @survey = Survey.find(@answer.survey_id)
-    @question.update(answered: true)
+    # @question.update(answered: true) => allow to respond only once 
     redirect_to survey_path(@survey)
   end
 
