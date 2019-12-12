@@ -11,3 +11,12 @@
                                           question_id :<%= q.id %> /
                                           content : <%= q.content %><br>
                                           <% end %>
+<br>
+<br>
+<br>
+<strong>PROFIL INFOS :</strong><br>
+<strong>My email : </strong> <%= @user.email %><br>
+<strong>My Company : </strong> <%= @user.company %><br>
+
+
+<%= link_to 'Edit profil / password', edit_user_registration_path %><br>
