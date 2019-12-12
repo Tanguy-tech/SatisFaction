@@ -20355,3 +20355,8 @@ footer {
     width: 100%;
     background-color: #172b4d;
 }
+.img-fluid-companie
+{
+    max-width: 100%;
+    height: 100%;
+}
