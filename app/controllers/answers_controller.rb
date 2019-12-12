@@ -13,11 +13,15 @@ class AnswersController < ApplicationController
 
 
   def create
+    puts '='*90
+    puts params 
+    puts '='*90
     @answer = Answer.create(answer_params)
     @question = Question.find(@answer.question_id)
     @survey = Survey.find(@answer.survey_id)
-    @question.update(answered: true)
-    redirect_to survey_path(@survey)
+    @landing = Landing.where(survey_id: @survey)
+    # @question.update(answered: true) => allow to respond only once 
+    redirect_to landing_path(@landing.ids)
   end
 
 
