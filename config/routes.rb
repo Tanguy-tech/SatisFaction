@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :lists
   resources :contacts
   resources :answers, except: [:index, :show, :edit]
-  resources :landings
+  resources :landings, param: :token
   resources :dashboards, only: [:show]
   get 'static/index_home'
   root 'static#index_home'

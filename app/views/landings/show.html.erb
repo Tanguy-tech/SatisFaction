@@ -1,11 +1,6 @@
-<p> Voici l'id de la landing : <%= @landing.id %> </p>
-<p> Voici le survey id associé à la landing : <%= @landing.survey_id %> </p>
+
+<h1> Salut </h1>
+
+<%= @landing.token %>
 
 <%= @survey.title %>
-<% @survey.questions.each do |question| %>
-<%= question.content %>
-<% end %>
-
-<% @survey.answers.each do |answer| %>
-<%= answer.value %>
-<% end %>
