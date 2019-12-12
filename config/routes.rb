@@ -7,9 +7,6 @@ Rails.application.routes.draw do
   resources :answers, except: [:index, :show, :edit]
   resources :landings
   resources :dashboards
-  get 'static/index_about_us'
-  get 'static/index_our_services'
-  get 'static/index_contact_us'
   get 'static/index_home'
   root 'static#index_home'
 
