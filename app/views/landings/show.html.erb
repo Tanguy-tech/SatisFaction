@@ -1,18 +1,18 @@
-<h2>Survey Title =>  <% @survey.each do |s| %>
-                  <%= s.title %><br>
-                <% end %><br></h2>
-
+<h2><% @survey.each do |s| %>
+      <%= s.title %><br>
+    <% end %><br></h2>
+<strong>Please read the following questions and rate them on a scale from 1 to 4 (4 being 'very much', and 1 being 'not at all')</strong><br><br>
 <% i = 1 %>
-  <% @questions.each do |q| %>
-    <%= simple_form_for(@answer) do |f| %>
-      Qestion <%= i %> : <%= q.content %>
-        <%= f.select :value, options_for_select(1..4) %>
-        <%= f.hidden_field :question_id, :value => q.id %>
-        <%= f.hidden_field :survey_id, :value => q.survey_id %>
-        <%= f.button :submit, 'Rate', class: "btn btn-info btn-sm" %><br>
-        - Answers :<% q.answers.each do |qa| %>
-                    <%= qa.value%> / 
-                  <% end %><br><br>
-    <% end %>
-    <% i += 1 %>
+<% @questions.each do |q| %>
+  <%= simple_form_for(@answer) do |f| %>
+    Qestion <%= i %> : <%= q.content %>
+      <%= f.select :value, options_for_select(1..4) %>
+      <%= f.hidden_field :question_id, :value => q.id %>
+      <%= f.hidden_field :survey_id, :value => q.survey_id %>
+      <%= f.button :submit, 'Rate', class: "btn btn-info btn-sm" %><br>
+      - Answers :<% q.answers.each do |qa| %>
+                  <%= qa.value%> / 
+                <% end %><br><br>
   <% end %>
+  <% i += 1 %>
+<% end %>
