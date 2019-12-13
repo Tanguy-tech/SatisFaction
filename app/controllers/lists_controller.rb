@@ -3,6 +3,9 @@ class ListsController < ApplicationController
 
   def create
 
+		puts '='*90
+		puts params
+		puts '='*90
   	@list = List.create!(list_params)
 
   	respond_to do |format|
@@ -14,7 +17,7 @@ class ListsController < ApplicationController
 
 		@list_array.each do |list|
 	    ListMailer.sending_survey(list).deliver_now
-	  end
+		end
 
   end
 
