@@ -14,11 +14,11 @@ class SurveysController < ApplicationController
 	# GET /surveys/1.json
 	def show 
 		@user = current_user
-
+ 
 		@survey_id = @survey.id
     @questions = Question.where(survey_id: @survey_id)
     @answers = Answer.where(survey_id: @survey).ids
-    @landings = Landing.where(survey_id: @survey_id).ids
+		@landings = Landing.where(survey_id: @survey_id).ids
 
 	end
   
