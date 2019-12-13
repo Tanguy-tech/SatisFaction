@@ -5,26 +5,35 @@
     <li><%= message %></li>
     <% end %>
 </ul>
-
-  <div class="form-inputs"></div>
-    <%= f.input :title %>
-    <%= f.hidden_field :user_id, value: @user.id %>
+<div class="container pt-lg-md">
+  <div class="row justify-content-center">
+    <div class="col-lg-6">
+      <div class="card bg-secondary shadow border-0">
+        <div class="card-body px-lg-5 py-lg-5">
+          <div class="form-inputs text-center">
+            <h3>Title</h3>
+            <%= f.input :title, label: false %>
+            <%= f.hidden_field :user_id, value: @user.id %>
+          </div><br>
+          <div class="text-center">
+          <p>Question Content</p>
+          <div class="questions">
+            <%= f.simple_fields_for :questions do |builder| %>
+            <%= render 'question_fields', f: builder %>
+            <% end %>
+          </div>
+          </div>
+          <br>
+          <div class="actions text-center">
+            <%= f.button :submit, class: "btn btn-info" %>
+            <%= link_to_add_association 'Add Question', f, :questions, class: 'btn btn-success', data: { association_insertion_node: '.questions', association_insertion_method: :append } %>
+          </div> 
+          <br>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
 
-  <table class="table">
-    <thead>
-        <th></th>
-        <th>Question Content</th>
-    </thead>
-    <tbody class="questions">
-      <%= f.simple_fields_for :questions do |builder| %>
-      <%= render 'question_fields', f: builder %>
-      <% end %>
-    </tbody>
-  </table>
 
-  <div class="actions text-center">
-    <%= f.button :submit %>
-    <%= link_to_add_association 'Add Question', f, :questions, class: 'btn btn-success', data: { association_insertion_node: '.questions', association_insertion_method: :append } %>
-  </div>
 <% end %>
