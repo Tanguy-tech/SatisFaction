@@ -53,6 +53,9 @@
 		              <div class="col-3">
 		                <%= link_to 'Edit', edit_survey_path(@survey), class: "btn btn-info" %>
 		              </div>
+                  <div class="col-3 text-right">
+                    <%= link_to 'Landing', landing_path(@landings), class: "btn btn-info" %>
+                  </div>
 		              <div class="col-3 text-right">
 		                <%= link_to 'Back', surveys_path, class: "btn btn-danger" %>
 		              </div>
@@ -61,12 +64,15 @@
                   <%= form_for List.new , url: lists_path do |f| %>
                     <div class="form-group mb-3">
  
-                        <label for="email"> Entre les emails des destinataires de la survey séparés par une virgule et un espace (a, b, ..) </label> </br>
+                        <label for="email"> Please enter the emails of your clients with the syntax shown in the example below.</label> </br>
                         <%= f.text_field :email, class: "form-control", placeholder: "jack@gmail.com, brigitte@gmail.com" %> </br>
+                        <%= f.hidden_field :survey_id, value: @survey_id %>
+                        <%= f.hidden_field :landing_id, value: @landings %>
+
 
                     </div>
 
-                    <%= f.submit 'create', :name => 'commit', :value => 'Envoyer', class: "btn btn-success" %>
+                    <%= f.submit 'create', :name => 'commit', :value => 'Send the survey', class: "btn btn-success" %>
                   <% end %>
               </div>
             </div>
@@ -76,11 +82,6 @@
 <% else %>
 <% controller.redirect_to root_path %>
 <% end %>
-
-<%= link_to 'Go to landing', landing_path(@landings), class: "btn btn-info" %>
-
-
-
 
 
 </section>
