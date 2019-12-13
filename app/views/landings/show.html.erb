@@ -1,22 +1,43 @@
-<h2><% @survey.each do |s| %>
-      <%= s.title %><br>
-    <% end %><br></h2>
-<strong>Please read the following questions and rate them on a scale from 1 to 4 (4 being 'very much', and 1 being 'not at all')</strong><br><br>
-<% i = 1 %>
-<% @questions.each do |q| %>
-  <%= simple_form_for(@answer) do |f| %>
-    Qestion <%= i %> : <%= q.content %>
-      <%= f.select :value, options_for_select(1..4) %>
-      <%= f.hidden_field :question_id, :value => q.id %>
-      <%= f.hidden_field :survey_id, :value => q.survey_id %>
-      <%= f.button :submit, 'Rate', class: "btn btn-info btn-sm" %><br>
-      <% sel = [] %>
-    - Answers :<% q.answers.each do |qa| %>
-                <% sel << qa.value%>
+<section class="py-5 bg-secondary" style="min-height: 84%">
+  <div class="container pt-lg-md">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="card bg-secondary shadow border-0">
+          <div class="card-body px-lg-5 py-lg-5">
+            <div class="form-inputs text-center">
+              <% @survey.each do |s| %>
+              <h2><%= s.title %></h2>
+            </div>
+              <% end %><br>
+              <strong>Please read the following questions and rate them on a scale from 1 to 4 (4 being 'very much', and 1 being 'not at all')</strong><br><br>
+              <% i = 1 %>
+              <% @questions.each do |q| %>
+                <%= simple_form_for(@answer) do |f| %>
+                  Question <%= i %> : <%= q.content %>
+                  <div class="text-center">
+                    <%= f.select :value, options_for_select(1..4) %>
+                    <%= f.hidden_field :question_id, :value => q.id %>
+                    <%= f.hidden_field :survey_id, :value => q.survey_id %>
+                    <%= f.button :submit, 'Rate', class: "btn btn-info btn-sm col-2" %>
+                  </div>                    
+                    <% sel = [] %>
+                  <div class="text-right">
+                    Your answer :<% q.answers.each do |qa| %>
+                                <% sel << qa.value%>
+                              <% end %>
+                              <%= sel.last %><br><br>
+                    <% end %>
+                  </div>
+                  <br>
+                <% i += 1 %>
               <% end %>
-              <%= sel.last %><br><br>
-  <% end %>
-  <% i += 1 %>
-<% end %>
-
-<%= link_to 'Send my answers', landing_path(@landing) %><br><br>
+            <div class="text-center">
+              <%= link_to 'Send my answers', landing_path(@landing), class: "btn btn-success" %><br>
+            </div>
+            <br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
