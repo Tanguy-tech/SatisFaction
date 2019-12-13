@@ -20,5 +20,5 @@ class LandingsController < ApplicationController
 	def answer_params
     params.permit(:value, :question_id, :survey_id)
   end
-
+	
 end
