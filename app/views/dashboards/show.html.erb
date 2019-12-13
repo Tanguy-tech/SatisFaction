@@ -1,3 +1,4 @@
+<% if @dashboard.user_id == current_user.id %>
 <section class="py-5 bg-secondary" style="min-height: 84%">
     <div class="text-center">
     <h1>Your Dashboard</h1>
@@ -64,4 +65,7 @@
           <hr>
     <% end %>
 </section>
+<% else %>
+<% controller.redirect_to root_path %>
+<% end %>
                       
