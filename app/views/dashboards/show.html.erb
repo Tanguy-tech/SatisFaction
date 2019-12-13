@@ -1,76 +1,24 @@
- <!-- Call for the transparent partial navbar-->
-
-<% content_for :navbar do %>
-  <%= render :partial =>'static/navbar_hp'%>
+<h1>Your Dashboard</h1>
+<br>
+<h4>You have <%= @user.surveys.count %> surveys created</h4>
+<br>
+<% @user.surveys.each do |user_s| %>
+	<strong>Survey : </strong><%= user_s.title %><br>
+  <% average = [] %>
+  <% user_s.questions.each do |q| %>
+    <strong>Question :</strong><%= q.content %><br>
+    <strong>- Answers :</strong><% q.answers.each do |qa| %>
+                  <%= qa.value%> / 
+                  <% average << qa.value %>
+                <% end %><br>
+  <% end %>
+  <% result = average.sum / average.size.to_f %>
+  <strong>The average for this survey is </strong><%= result %> /4 <br><br>
 <% end %>
+<br>
+<br>
 
-<!-- end of navbar partial -->
-
-<section class="section section-shaped section-lg">
-      <div class="shape shape-style-1 bg-gradient-default">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-	<div class="container pt-lg-md">
-    <div class="row justify-content-center">
-      <div class="col-lg-5" >
-        <div class="card bg-secondary shadow border-0">
-          <div class="card-body px-lg-5 py-lg-5" style="background-color: #8898aa">
-            <div class="text-center text-muted mb-4">
-              <h2>Profil information</h2>
-            </div>
-            <form>
-              <div class="form-group mb-3">
-              	<p class="text-center">Company Name</p>
-              	<div class="input-group-prepend">
-               		<input class="form-control" placeholder="<%= @user.username %>" disabled>
-              	</div>
-              	<br><br>
-              	<p class="text-center">Email</p>
-              	<div class="input-group-prepend">
-               		<input class="form-control" placeholder="<%= @user.email %>" disabled>
-              	</div>
-            	</div>
-              <br>
-              <div class="text-center">
-               	<%= link_to "Edit your profile", edit_user_registration_path, class: "btn btn-info" %>            
-              </div>
-            </form>
-          </div>
-        </div>            
-      </div>
-    </div>
-  </div>
-
-	<% @user.surveys.each do |user_s| %>
-	<div class="container pt-lg-md">
-    <div class="row justify-content-center">
-      <div class="col-lg-5" >
-        <div class="card bg-secondary shadow border-0">
-          <div class="card-body px-lg-5 py-lg-5" style="background-color: #8898aa">
-            <div class="text-center text-muted mb-4">
-              <h2><%= user_s.title %></h2>
-            </div>
-            <form>
-            	<% user_s.questions.each do |q| %>
-              <div class="form-group mb-3">
-              	<br>
-              	<div class="input-group-prepend">
-               		<input class="form-control" placeholder="<%= q.content %>" disabled>
-              	</div>
-              	<% end %>
-            	</div>
-            </form>
-          </div>
-        </div>            
-      </div>
-    </div>
-  </div>
-	<% end %>
-</section>
+<strong>Your company : </strong><%= @user.username %><br>
+<strong>Your email adress :</strong><%= @user.email %><br>
+<strong>You created </strong><%= @user.surveys.count %><strong> surveys</strong><br>
+<%= link_to "Edit your profile", edit_user_registration_path %><br><br>
