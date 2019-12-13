@@ -1,22 +1,76 @@
-<strong>DASHBOARD ID :</strong><%= @dashboard.id %><br>
-<strong>DASHBOARD USER_ID :</strong><%= @dashboard.user_id %><br>
-<strong>SURVEYS IDs FOR THIS USER :</strong><% @user.surveys.each do |user_s| %>
-                                        <%= user_s.id %> / 
-                                        <% end %><br>
-<strong>SURVEYS titles FOR THIS USER :</strong><% @user.surveys.each do |user_s| %>
-                                        <%= user_s.title %> / 
-                                        <% end %><br>
-<strong>QUESTIONS FOR THIS USER :</strong><% @questions.each do |q| %>
-                                          survey_id :<%= q.survey_id %> /
-                                          question_id :<%= q.id %> /
-                                          content : <%= q.content %><br>
-                                          <% end %>
-<br>
-<br>
-<br>
-<strong>PROFIL INFOS :</strong><br>
-<strong>My email : </strong> <%= @user.email %><br>
-<strong>My Company : </strong> <%= @user.company %><br>
+ <!-- Call for the transparent partial navbar-->
 
+<% content_for :navbar do %>
+  <%= render :partial =>'static/navbar_hp'%>
+<% end %>
 
-<%= link_to 'Edit profil / password', edit_user_registration_path %><br>
+<!-- end of navbar partial -->
+
+<section class="section section-shaped section-lg">
+      <div class="shape shape-style-1 bg-gradient-default">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+	<div class="container pt-lg-md">
+    <div class="row justify-content-center">
+      <div class="col-lg-5" >
+        <div class="card bg-secondary shadow border-0">
+          <div class="card-body px-lg-5 py-lg-5" style="background-color: #8898aa">
+            <div class="text-center text-muted mb-4">
+              <h2>Profil information</h2>
+            </div>
+            <form>
+              <div class="form-group mb-3">
+              	<p class="text-center">Company Name</p>
+              	<div class="input-group-prepend">
+               		<input class="form-control" placeholder="<%= @user.username %>" disabled>
+              	</div>
+              	<br><br>
+              	<p class="text-center">Email</p>
+              	<div class="input-group-prepend">
+               		<input class="form-control" placeholder="<%= @user.email %>" disabled>
+              	</div>
+            	</div>
+              <br>
+              <div class="text-center">
+               	<%= link_to "Edit your profile", edit_user_registration_path, class: "btn btn-info" %>            
+              </div>
+            </form>
+          </div>
+        </div>            
+      </div>
+    </div>
+  </div>
+
+	<% @user.surveys.each do |user_s| %>
+	<div class="container pt-lg-md">
+    <div class="row justify-content-center">
+      <div class="col-lg-5" >
+        <div class="card bg-secondary shadow border-0">
+          <div class="card-body px-lg-5 py-lg-5" style="background-color: #8898aa">
+            <div class="text-center text-muted mb-4">
+              <h2><%= user_s.title %></h2>
+            </div>
+            <form>
+            	<% user_s.questions.each do |q| %>
+              <div class="form-group mb-3">
+              	<br>
+              	<div class="input-group-prepend">
+               		<input class="form-control" placeholder="<%= q.content %>" disabled>
+              	</div>
+              	<% end %>
+            	</div>
+            </form>
+          </div>
+        </div>            
+      </div>
+    </div>
+  </div>
+	<% end %>
+</section>
