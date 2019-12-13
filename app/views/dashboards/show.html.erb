@@ -1,50 +1,60 @@
-<h1>Your Dashboard</h1>
-<br>
-<h4>You have <%= @user.surveys.count %> surveys created</h4>
-<br>
+<section class="py-5 bg-secondary" style="min-height: 84%">
+    <div class="text-center">
+    <h1>Your Dashboard</h1>
+    <br>
+    <h4>You have <%= @user.surveys.count %> surveys created</h4>
+    </div>
+    <br>
 
-<!-- test dashboard -->
 
-<% @user.surveys.each do |user_s| %>
-<div class="nav-wrapper" style="max-width:80%">
-    <ul class="nav nav-pills nav-fill flex-column flex-md-row" id="tabs-icons-text" role="tablist">
-        <li class="nav-item">
-            <a class="nav-link mb-sm-3 mb-md-0 active" id="tabs-icons-text-1-tab" data-toggle="tab" href="#tabs-icons-text-1" role="tab" aria-controls="tabs-icons-text-1" aria-selected="true"><i class="ni ni-cloud-upload-96 mr-2"></i>Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link mb-sm-3 mb-md-0" id="tabs-icons-text-2-tab" data-toggle="tab" href="#tabs-icons-text-2" role="tab" aria-controls="tabs-icons-text-2" aria-selected="false"><i class="ni ni-bell-55 mr-2"></i>Profile</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link mb-sm-3 mb-md-0" id="tabs-icons-text-3-tab" data-toggle="tab" href="#tabs-icons-text-3" role="tab" aria-controls="tabs-icons-text-3" aria-selected="false"><i class="ni ni-calendar-grid-58 mr-2"></i>Messages</a>
-        </li>
-    </ul>
-</div>
-<div class="card shadow" style="max-width:80%">
-    <div class="card-body">
-        <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="tabs-icons-text-1" role="tabpanel" aria-labelledby="tabs-icons-text-1-tab">
-                <p class="description"> 
-<strong>Survey : </strong><%= user_s.title %><br>
-                    <% average = [] %> </p>
+    <!-- test dashboard -->
+    <% @user.surveys.each do |user_s| %>
+    <div class="text-center">
+    <div class="nav-wrapper" style="max-width:40%">
+        <ul class="nav nav-pills nav-fill flex-column flex-md-row" id="tabs-icons-text" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link mb-sm-3 mb-md-0 active" id="tabs-icons-text-1-tab" data-toggle="tab" href="#tabs-icons-text-1" role="tab" aria-controls="tabs-icons-text-1" aria-selected="true">Main informations</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link mb-sm-3 mb-md-0" id="tabs-icons-text-2-tab" data-toggle="tab" href="#tabs-icons-text-2" role="tab" aria-controls="tabs-icons-text-2" aria-selected="false">Details</a>
+            </li>
+        </ul>
+    </div>
+    <div class="card shadow" style="max-width:40%">
+        <div class="card-body">
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="tabs-icons-text-1" role="tabpanel" aria-labelledby="tabs-icons-text-1-tab">
+                    <div class="description"> 
+                    <strong>Title :</strong> <%= user_s.title %><br>
+                    
+                    <strong>Created at :</strong> <%= user_s.created_at.strftime("%d %b %Y") %><br>              
+
+              </div>                         
             </div>
-            <div class="tab-pane fade" id="tabs-icons-text-2" role="tabpanel" aria-labelledby="tabs-icons-text-2-tab">
-                <p class="description">   
-                    <% user_s.questions.each do |q| %>
-                    <strong>Question :</strong><%= q.content %><br>
-                    <strong>- Answers :</strong><% q.answers.each do |qa| %>
-                        <%= qa.value%> / 
-                        <% average << qa.value %>
-                        <% end %><br>
-                    <% end %>
-            </div>
-            <div class="tab-pane fade" id="tabs-icons-text-3" role="tabpanel" aria-labelledby="tabs-icons-text-3-tab">
-                <p class="description">
-                      <% result = average.sum / average.size.to_f %>
-                      <strong>The average for this survey is </strong><%= result %> /4 <br><br>
+                <div class="tab-pane fade" id="tabs-icons-text-2" role="tabpanel" aria-labelledby="tabs-icons-text-2-tab">
+                    <div class="description">   
+                            <% average = [] %>
+                  <% user_s.questions.each do |q| %>
+                  <% q.content %><br>
+                  <% q.answers.each do |qa| %>
+                  <% qa.value%>
+                  <% average << qa.value %>
+                <% end %><br>
+                <% end %>
+                <% result = average.sum / average.size.to_f %>
+                <strong>Average rating : </strong><%= result %> /4 <br><br>
 
-                </p>
+
+
+
+                        <% user_s.questions.each do |q| %>
+                        <strong>Question : </strong><%= q.content %><br>
+                        <% end %>
+                    </div>    
+                </div>
             </div>
         </div>
     </div>
-</div>
-<% end %>
+    <hr>
+    <% end %>
+</section>
