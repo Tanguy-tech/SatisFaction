@@ -15,8 +15,8 @@ class ListsController < ApplicationController
 
 		@list_array = @list.email.split(', ')
 
-		@list_array.each do |list|
-	    ListMailer.sending_survey(list).deliver_now
+		@list_array.each do |mail|
+	    ListMailer.sending_survey(mail, @list).deliver_now
 		end
 
   end

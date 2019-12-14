@@ -63,4 +63,7 @@ Rails.application.configure do
   #action mailer 
   config.action_mailer.perform_deliveries = true
 
+  #
+  routes.default_url_options[:host] = ‘localhost:3000’
+
 end
