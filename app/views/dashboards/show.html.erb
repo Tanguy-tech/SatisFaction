@@ -41,7 +41,11 @@
                       <% end %>
                     <% end %>
                     <% result = average.sum / average.size.to_f %>
-                    <strong>Average rating : </strong><%= result %> /4 <br><br>    
+                    <% if average.size > 0 %>
+                      <strong>Average rating : </strong><%= result %> /4 <br><br>
+                    <% else %>
+                      <strong>Average rating : </strong>Not answer yet
+                    <% end %>    
                   </div>                         
                 </div>
                 <% tab_nb_body += 1 %>
@@ -49,11 +53,21 @@
                   <div class="description">   
                     
                     <% user_s.questions.each do |q| %>
+                    <% average_by_q = [] %>
                       <strong>Question : </strong><%= q.content %><br>
                       <div class="text-right">
                         <strong>Answers : </strong>
-                        <% q.answers.each do |qa| %>
-                          <%= qa.value%> /4 <br>
+                        <% if q.answers.any? %>
+                          <% q.answers.each do |qa| %>
+                            <%= qa.value%> /4 <br>                          
+                            <% average_by_q << qa.value %>
+                          <% end %>
+                          <br>
+                          <strong>Average : </strong>
+                          <%= result_by_q = average_by_q.sum / q.answers.size.to_f %>
+                          <hr>
+                        <% else %>
+                        <p>Not answer yet</p>
                         <% end %>
                       </div>
                     <% end %>
