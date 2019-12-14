@@ -14,7 +14,7 @@ class AnswersController < ApplicationController
 
   def create
     puts '='*90
-    puts params 
+    puts params
     puts '='*90
     @answer = Answer.create(answer_params)
     @question = Question.find(@answer.question_id)
