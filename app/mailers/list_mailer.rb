@@ -4,6 +4,6 @@ class ListMailer < ApplicationMailer
 
     def sending_survey(mail,list)
       @landing = Landing.find(list.landing_id)
-      mail to: list
+      mail to: mail
     end
 end

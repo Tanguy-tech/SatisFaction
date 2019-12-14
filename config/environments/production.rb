@@ -94,5 +94,5 @@ Rails.application.configure do
 
   # heroku for prod
   config.action_mailer.default_url_options = 
-      { :host => https://www.satisfaction-project.herokuapp.com' } 
+      { :host => 'https://satisfaction-project.herokuapp.com' } 
 end
