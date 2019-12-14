@@ -57,7 +57,7 @@
                       <strong>Question : </strong><%= q.content %><br>
                       <div class="text-right">
                         <strong>Answers : </strong>
-                        <% if q.answers.size > 0 %>
+                        <% if q.answers.any? %>
                           <% q.answers.each do |qa| %>
                             <%= qa.value%> /4 <br>                          
                             <% average_by_q << qa.value %>
