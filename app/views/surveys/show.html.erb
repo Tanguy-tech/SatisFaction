@@ -67,8 +67,8 @@
                   <%= form_for List.new , url: lists_path do |f| %>
                     <div class="form-group mb-3">
  
-                        <label for="email"> Please enter the emails of your clients with the syntax shown in the example below.</label> </br>
-                        <%= f.text_field :email, class: "form-control", placeholder: "jack@gmail.com, brigitte@gmail.com" %> </br>
+                        <label for="email"> Please enter the emails of your clients with the syntax shown in the example below. <br> Little precision, if you first want to verify the authenticity of emails you can go  <%= link_to 'here' ,new_email_verification_path, target: :_blank %> </label> <br>
+                        <%= f.text_field :email, class: "form-control", placeholder: "jack@gmail.com, brigitte@gmail.com" %> <br>
                         <%= f.hidden_field :survey_id, value: @survey_id %>
                         <%= f.hidden_field :landing_id, value: @landings %>
 

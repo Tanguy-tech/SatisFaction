@@ -13,6 +13,7 @@ class User < ApplicationRecord
 
   has_many :surveys , :dependent => :destroy
 
+  has_many :email_verifications
 
   after_create :welcome_send
 

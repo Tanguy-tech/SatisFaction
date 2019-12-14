@@ -1,0 +1,10 @@
+<%= form_for EmailVerification.new, url: email_verifications_path do |f| %>
+  <div class="form-group mb-3">
+
+      <label for="email"> Please enter the email of your client that you want to verify</label> </br>
+      <%= f.text_field :email, class: "form-control", placeholder: "jack@gmail.com" %> </br>
+      <%= f.hidden_field :user_id, value: @user.id %>
+  </div>
+
+  <%= f.submit 'create', :name => 'commit', :value => 'Test the email', class: "btn btn-success" %>
+<% end %>

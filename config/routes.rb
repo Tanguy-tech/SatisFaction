@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :answers, except: [:index, :show, :edit]
   resources :landings
   resources :dashboards, only: [:show]
+  resources :email_verifications, only: [:index, :new, :create]
   get 'static/index_home'
   root 'static#index_home'
 

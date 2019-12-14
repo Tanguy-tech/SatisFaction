@@ -95,3 +95,8 @@ gem "jquery-ui-rails"
 
 #for testing
 gem 'pry'
+
+#Gem Rest-client
+gem 'rest-client', '~> 2.1'
+
+

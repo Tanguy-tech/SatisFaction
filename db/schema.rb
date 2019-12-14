@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_13_114013) do
+ActiveRecord::Schema.define(version: 2019_12_14_181533) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,15 @@ ActiveRecord::Schema.define(version: 2019_12_13_114013) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_dashboards_on_user_id"
+  end
+
+  create_table "email_verifications", force: :cascade do |t|
+    t.string "email"
+    t.boolean "is_valid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_email_verifications_on_user_id"
   end
 
   create_table "landings", force: :cascade do |t|
@@ -89,6 +98,7 @@ ActiveRecord::Schema.define(version: 2019_12_13_114013) do
   add_foreign_key "answers", "questions"
   add_foreign_key "answers", "surveys"
   add_foreign_key "dashboards", "users"
+  add_foreign_key "email_verifications", "users"
   add_foreign_key "landings", "surveys"
   add_foreign_key "lists", "landings"
   add_foreign_key "lists", "surveys"
