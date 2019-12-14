@@ -46,7 +46,7 @@
                     <% average << a.value %>
                   <% end %>
                   <% result = average.sum / average.size.to_f %>
-                  <% if average.size.any? %>
+                  <% if average.size > 0 %>
                     <%= result %> / 4
                   <% else %>
                     <p>Not answer yet</p>
