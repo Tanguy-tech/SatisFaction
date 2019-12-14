@@ -12,9 +12,9 @@
               <strong>Please read the following questions and rate them on a scale from 1 to 4 (4 being 'very much', and 1 being 'not at all')</strong><br><br>
               <% i = 1 %>
               <% @questions.each do |q| %>
-                <%= simple_form_for(@answer) do |f| %>
+                <%= simple_form_for(@answer, remote: true) do |f| %>
                   Question <%= i %> : <%= q.content %>
-                  <div class="text-center">
+                  <div class="text-center" id="">
                     <%= f.select :value, options_for_select(1..4) %>
                     <%= f.hidden_field :question_id, :value => q.id %>
                     <%= f.hidden_field :survey_id, :value => q.survey_id %>

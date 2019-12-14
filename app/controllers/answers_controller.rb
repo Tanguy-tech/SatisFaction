@@ -20,8 +20,11 @@ class AnswersController < ApplicationController
     @question = Question.find(@answer.question_id)
     @survey = Survey.find(@answer.survey_id)
     @landing = Landing.where(survey_id: @survey)
-    # @question.update(answered: true) => allow to respond only once 
-    redirect_to landing_path(@landing.ids)
+    # @question.update(answered: true) => allow to respond only once
+    respond_to do |format|
+      format.html { redirect_to landing_path(@landing.ids) }
+      format.js { }
+    end
   end
 
 
