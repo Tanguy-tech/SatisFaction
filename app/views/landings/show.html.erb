@@ -21,13 +21,7 @@
                     <%= f.button :submit, 'Rate', class: "btn btn-info btn-sm col-2" %>
                   </div>                    
                     <% sel = [] %>
-                  <div class="text-right">
-                    Your answer :<% q.answers.each do |qa| %>
-                                <% sel << qa.value%>
-                              <% end %>
-                              <%= sel.last %><br><br>
                     <% end %>
-                  </div>
                   <br>
                 <% i += 1 %>
               <% end %>
